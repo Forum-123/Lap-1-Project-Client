@@ -2,16 +2,23 @@
     --light-grey: rgb(204 202 202);
     --blue: #2d9fd9;
     --canvas: #DAE0E6;
-  }
+}
 
-  body {
+body {
     background-color: var(--canvas);
-  }
-  
+}
+
 .noDisplay {
     display: none;
 }
-/* Nav ------------------------------------------------------- */
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* ---------- Nav ---------- */
+
 nav {
     display: flex;
     align-items: center;
@@ -19,11 +26,10 @@ nav {
     background-color: white;
     width: 100%;
     top: 0;
-    left: 0px;
+    left: 0;
     z-index: 10;
     border: 1px solid var(--light-grey);
     position: fixed;
-    
 }
 
 h3 {
@@ -34,17 +40,28 @@ h3 {
     width: 30%;
     display: flex;
     align-items: center;
+    margin-left: 1rem;
 }
+
 #icon {
-    width: 3rem;
+    width: 2rem;
     height: 2rem;
-    padding: 0px 1rem;
+    padding: 0 1rem;
 }
+
 #filterSection {
-    width: 30%;
+    text-align: center;
+    white-space: nowrap;
 }
+
 #accountSection {
     width: 30%;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+#accountSection>button {
+    display: inline-block;
 }
 
 #accountIcon {
@@ -53,15 +70,21 @@ h3 {
 }
 
 
+/* ---------- Entry section - DOM ---------- */
 
-
-/* Entries ------------------------------------------------------- */
+#entrySection {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 70%;
+}
 
 .entryCard {
     border: 1px solid var(--light-grey);
     width: 55%;
     padding: 1.5rem;
-    margin: 20px;
+    margin: 2rem auto;
     border-radius: 4px;
     padding-left: 40px;
     background-color: white;
@@ -70,6 +93,7 @@ h3 {
 .entryHeader {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .entryFooter {
@@ -86,52 +110,44 @@ h3 {
     margin: 5px;
 }
 
-/* Comments ------------------------------------------------------- */
+.commentSectionButton {
+    width: 100%;
+}
+
+.gif {
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ---------- Comments ---------- */
+
 .comment {
     border: 1px solid var(--light-grey);
     padding: 20px;
     border-radius: 25px;
-
 }
 
 
-/* FORM ------------------------------------------------------- */
+/* ---------- Form ---------- */
+
+article {
+    margin: 30px;
+}
+
 .entryForm {
     border: 1px solid var(--light-grey);
-    margin-right: 400px;
     padding: 2rem;
     display: flex;
+    margin: 0 auto;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    margin-left: 30px;
     background-color: white;
-    margin-top: 40px;
+    margin-top: 3rem;
+    width: 45%;
     border-radius: 4px;
-}
-
-.entryForm iframe {
-    width: 60%;
-}
-
-.gifSelector {
-    width: 30%;
-}
-
-/*  ------------------------------------------------------- */
-
-*{
-    font-family: 'Roboto', sans-serif;
-}
-
-
-#entrySection{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: 28%;
-    width: 70%;
-  
 }
 
 #mainHeader {
@@ -142,7 +158,6 @@ h3 {
 }
 
 #formTitle {
-    
     border: 1px solid var(--blue);
     border-radius: 10px;
     padding: 3px;
@@ -152,22 +167,86 @@ h3 {
 }
 
 #formMessage {
-    
     border: 1px solid var(--blue);
     border-radius: 10px;
     padding: 3px;
     width: 90%;
     margin-left: 6%;
-
 }
-#formGifSearch {
 
+#formGifSearch {
     border: 1px solid var(--blue);
     border-radius: 10px;
     padding: 3px;
     width: 90%;
     height: 20px;
     margin-left: 6%;
+}
+
+input[type="text" i] {
+    border-radius: 20px;
+    border: 1px solid var(--blue);
+    width: 250px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.formLabel {
+    margin: 10px;
+    display: none;
+}
+
+.entryForm iframe {
+    width: 60%;
+}
+
+.gifSelector {
+    width: 30%;
+}
+
+#postButton {
+    /* background-color: #cecece; */
+    /* background-color: var(--blue); */
+    width: 71%;
+    margin-top: 10px;
+    margin-left: 13%;
+    border-radius: 8px;
+    border-width: 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 10px 12px;
+    transition: all 200ms;
+}
+
+#postButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#postButton:hover {
+    background-color: #afacac;
+}
+
+#postButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#postButton:hover span {
+    padding-right: 25px;
+}
+
+#postButton:hover span:after {
+    opacity: 1;
+    right: 0;
 }
 
 button {
@@ -183,77 +262,4 @@ button {
     transition: all 200ms;
     background-color: var(--blue);
     color: white;
-}
-
-.commentSectionButton {
-    width: 100%;
-}
-
-#postButton {
-    /* background-color: #cecece; */
-    /* background-color: var(--blue); */
-    width: 71%;
-    margin-top: 10px;
-    margin-left: 13%;
-    border-radius: 8px;
-    border-width: 0;
-    cursor: pointer; 
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    padding: 10px 12px;
-    transition: all 200ms;  
-}
-
-#postButton span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  #postButton:hover  {
-    background-color: #afacac;
-  }
-  
-  #postButton span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  #postButton:hover span {
-    padding-right: 25px;
-  }
-  
-  #postButton:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
-.gif {
-    margin-left: 40px;
-}
-
-article {
-    margin: 30px
-}
-
-input[type="text" i] {
-     border-radius: 20px;
-     border: 1px solid var(--blue);
-     width: 250px;
-     height: 30px;
-     padding-left: 10px;
-}
-
-.formLabel {
-margin:10px;
-display: none;
-}
-
-a {
-    text-decoration: none;
 }
